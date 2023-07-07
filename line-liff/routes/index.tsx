@@ -1,30 +1,59 @@
 import { Head } from "$fresh/runtime.ts";
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import liff from "npm:@line/liff";
+
+import { useRef, useEffect } from "preact/hooks";
 
 export default function Home() {
-  const count = useSignal(3);
+  let inputRef = useRef<HTMLInputElement>(null);
+  let liffId = "";
+
+  useEffect(() => {
+    liff
+      .init({
+        liffId: liffId,
+      })
+      .then(() => {
+        getProfile();
+      })
+      .catch((err) => {
+        alert(err);
+      })
+      .then(() => {
+        alert("起動しました。");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
+  function SendMessage() {
+    if (inputRef.current) {
+      liff.sendMessages([{ type: "text", text: inputRef.current.value }]);
+      alert("送信しました。");
+      inputRef.current.value = "ok";
+    }
+  }
+
   return (
     <>
       <Head>
-        <title>line-liff</title>
+        <title>LINE-Tool-Kit</title>
+        <meta name="description" content="LINE-Tool-Kit by @macl2189 / amex" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div class="px-4 py-8 mx-auto bg-[#86efac]">
-        <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-          <img
-            class="my-6"
-            src="/logo.svg"
-            width="128"
-            height="128"
-            alt="the fresh logo: a sliced lemon dripping with juice"
-          />
-          <h1 class="text-4xl font-bold">Welcome to fresh</h1>
-          <p class="my-4">
-            Try updating this message in the
-            <code class="mx-2">./routes/index.tsx</code> file, and refresh.
-          </p>
-          <Counter count={count} />
-        </div>
+      <div>
+        <h1>LINE-Tool-Kit</h1>
+        <p>Test: SendMessage</p>
+        <input
+          type="text"
+          class="border"
+          placeholder="Message"
+          ref={inputRef}
+        />
+        <button class="px-2 py-1 border-gray-500 border-2 rounded bg-white hover:bg-gray-200 transition-colors">
+          Send
+        </button>
+        <p>LINE-Tool-Kit by @macl2189 / amex</p>
       </div>
     </>
   );
