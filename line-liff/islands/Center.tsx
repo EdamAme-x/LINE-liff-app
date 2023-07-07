@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head, IS_BROWSER } from "$fresh/runtime.ts";
 import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
@@ -7,16 +7,18 @@ export default function Tool() {
   let liffId = "2000070933-jKEbBNox";
 
   useEffect(() => {
-    liff
-      .init({
-        liffId: liffId,
-      })
-      .then(() => {
-        alert("起動しました。");
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    if (IS_BROWSER) {
+      liff
+        .init({
+          liffId: liffId,
+        })
+        .then(() => {
+          alert("起動しました。");
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }
   }, []);
 
   function SendMessage() {
@@ -28,7 +30,7 @@ export default function Tool() {
   }
 
   // ブラウザ上の場合のみコンポーネントを表示する
-  if (typeof window !== "undefined") {
+  if (IS_BROWSER) {
     return (
       <>
         <Head>
