@@ -14,7 +14,7 @@
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
     "$std/": "https://deno.land/std@0.190.0/",
-    "@sky-liff": "https://cdn.skypack.dev/@line/liff"
+    "@sky-liff": "https://cdn.skypack.dev/-/@liff/is-sub-window@v2.22.2-b8ezbJVusZcNiwZMYMWx/dist=es2019,mode=imports/optimized/@liff/is-sub-window.js"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
