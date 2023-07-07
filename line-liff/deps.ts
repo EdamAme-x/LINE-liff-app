@@ -1,0 +1,1 @@
+export { liff } from 'npm:@line/liff';
