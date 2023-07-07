@@ -1,4 +1,20 @@
 import { Head } from "$fresh/runtime.ts";
+
+let windowOk = typeof window === "undefined";
+
+if (windowOk) {
+  globalThis.window = {
+    sessionStorage: {
+      getItem: () => "ok",
+      setItem: () => {},
+      removeItem: () => {},
+      clear: () => {},
+      length: 0
+    }
+  };
+}
+
+
 import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
