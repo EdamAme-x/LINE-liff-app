@@ -5,7 +5,7 @@ import { useRef, useEffect } from "preact/hooks";
 
 export default function Home() {
   let inputRef = useRef<HTMLInputElement>(null);
-  let liffId = "";
+  let liffId = "2000070933-jKEbBNox";
 
   useEffect(() => {
     liff
