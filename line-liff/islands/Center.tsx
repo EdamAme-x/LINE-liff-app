@@ -32,35 +32,27 @@ export default function Tool() {
     }
   }
 
-  // ブラウザ上の場合のみコンポーネントを表示する
-  if (IS_BROWSER) {
-    return (
-      <>
-        <Head>
-          <title>LINE-Tool-Kit</title>
-          <meta
-            name="description"
-            content="LINE-Tool-Kit by @macl2189 / amex"
-          />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <div>
-          <h1>LINE-Tool-Kit</h1>
-          <p>Test: SendMessage</p>
-          <input
-            type="text"
-            class="border"
-            placeholder="Message"
-            ref={inputRef}
-          />
-          <button class="px-2 py-1 border-gray-500 border-2 rounded bg-white hover:bg-gray-200 transition-colors">
-            Send!
-          </button>
-          <p>LINE-Tool-Kit by @macl2189 / amex </p>
-        </div>
-      </>
-    );
-  } else {
-    return <div>Error ブラウザではない可能性が有ります。</div>;
-  }
+  return (
+    <>
+      <Head>
+        <title>LINE-Tool-Kit</title>
+        <meta name="description" content="LINE-Tool-Kit by @macl2189 / amex" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div>
+        <h1>LINE-Tool-Kit</h1>
+        <p>Test: SendMessage</p>
+        <input
+          type="text"
+          class="border"
+          placeholder="Message"
+          ref={inputRef}
+        />
+        <button class="px-2 py-1 border-gray-500 border-2 rounded bg-white hover:bg-gray-200 transition-colors">
+          Send!
+        </button>
+        <p>LINE-Tool-Kit by @macl2189 / amex </p>
+      </div>
+    </>
+  );
 }
