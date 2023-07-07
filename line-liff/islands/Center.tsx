@@ -24,11 +24,15 @@ export default function Tool() {
 
   function SendMessage() {
     if (inputRef.current) {
-      import("@sky-liff").then((liff) => {
-        liff.sendMessages([{ type: "text", text: inputRef.current.value }]);
-        alert("送信しました。");
-        inputRef.current.value = "ok";
-      });
+      try {
+        import("@sky-liff").then((liff) => {
+          liff.sendMessages([{ type: "text", text: inputRef.current.value }]);
+          alert("送信しました。");
+          inputRef.current.value = "ok";
+        });
+      }catch (err) {
+        alert(err);
+      }
     }
   }
 
