@@ -61,6 +61,6 @@ export default function Tool() {
       </>
     );
   } else {
-    return <div>Error</div>;
+    return <div>Error ブラウザではない可能性が有ります。</div>;
   }
 }
