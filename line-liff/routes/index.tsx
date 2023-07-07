@@ -3,7 +3,7 @@ import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
 export default function Home() {
-  if (sessionStorage) {
+  if (!sessionStorage) {
     return (
       <>
         <Head>
