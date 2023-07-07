@@ -49,7 +49,7 @@ export default function Tool() {
             ref={inputRef}
           />
           <button class="px-2 py-1 border-gray-500 border-2 rounded bg-white hover:bg-gray-200 transition-colors">
-            Send
+            Send!
           </button>
           <p>LINE-Tool-Kit by @macl2189 / amex </p>
         </div>

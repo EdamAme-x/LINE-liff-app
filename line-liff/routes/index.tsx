@@ -1,4 +1,4 @@
-import Tool from "~/islands/Tool.tsx";
+import Tool from "~/islands/Center.tsx";
 
 export default function Home() {
   return (
