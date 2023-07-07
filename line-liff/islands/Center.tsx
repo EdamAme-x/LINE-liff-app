@@ -3,17 +3,26 @@ import { Head } from "$fresh/runtime.ts";
 let windowOk = typeof window === "undefined";
 
 if (windowOk) {
-  globalThis.window = {
-    sessionStorage: {
-      getItem: () => "ok",
-      setItem: () => {},
-      removeItem: () => {},
-      clear: () => {},
-      length: 0
-    }
-  };
-}
+  let sessionData = {};
 
+  if (typeof window === "undefined") {
+    globalThis.window = {
+      sessionStorage: {
+        getItem: (key) => sessionData[key],
+        setItem: (key, value) => {
+          sessionData[key] = value;
+        },
+        removeItem: (key) => {
+          delete sessionData[key];
+        },
+        clear: () => {
+          sessionData = {};
+        },
+        length: Object.keys(sessionData).length,
+      },
+    };
+  }
+}
 
 import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
