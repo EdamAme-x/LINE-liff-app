@@ -6,9 +6,6 @@ export default function Tool() {
   let inputRef = useRef<HTMLInputElement>(null);
   let liffId = "2000070933-jKEbBNox";
 
-  console.log(IS_BROWSER); // false
-  // サーバーサイドでレンダリングされてしまう。
-
   useEffect(() => {
     liff
       .init({
