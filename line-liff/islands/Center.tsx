@@ -2,12 +2,12 @@ import { Head, IS_BROWSER } from "$fresh/runtime.ts";
 import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
-console.log(IS_BROWSER); // false
-// サーバーサイドでレンダリングされてしまう。
-
 export default function Tool() {
   let inputRef = useRef<HTMLInputElement>(null);
   let liffId = "2000070933-jKEbBNox";
+
+  console.log(IS_BROWSER); // false
+  // サーバーサイドでレンダリングされてしまう。
 
   useEffect(() => {
     liff
