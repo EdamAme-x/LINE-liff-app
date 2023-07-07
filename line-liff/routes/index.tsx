@@ -3,21 +3,22 @@ import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
 export default function Home() {
-
   if (sessionStorage) {
-  return (
-    <>
-    <Head>
-      <title>LINE-Tool-Kit</title>
-      <meta name="description" content="LINE-Tool-Kit by @macl2189 / amex" />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <div>
-      <h1>LINE-Tool-Kit - Error / 連絡先:@macl2189</h1>
-    </div>
-    </>
-  );
-
+    return (
+      <>
+        <Head>
+          <title>LINE-Tool-Kit</title>
+          <meta
+            name="description"
+            content="LINE-Tool-Kit by @macl2189 / amex"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div>
+          <h1>LINE-Tool-Kit - Error / 連絡先:@macl2189</h1>
+        </div>
+      </>
+    );
   }
 
   let inputRef = useRef<HTMLInputElement>(null);
