@@ -1,5 +1,4 @@
 import { Head, IS_BROWSER } from "$fresh/runtime.ts";
-import liff from "@sky-liff";
 import { useRef, useEffect } from "preact/hooks";
 
 export default function Tool() {
@@ -8,24 +7,28 @@ export default function Tool() {
 
   useEffect(() => {
     if (IS_BROWSER) {
-      liff
-        .init({
-          liffId: liffId,
-        })
-        .then(() => {
-          alert("起動しました。");
-        })
-        .catch((err) => {
-          alert(err);
-        });
+      import("@sky-liff").then((liff) => {
+        liff
+          .init({
+            liffId: liffId,
+          })
+          .then(() => {
+            alert("起動しました。");
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      });
     }
   }, []);
 
   function SendMessage() {
     if (inputRef.current) {
-      liff.sendMessages([{ type: "text", text: inputRef.current.value }]);
-      alert("送信しました。");
-      inputRef.current.value = "ok";
+      import("@sky-liff").then((liff) => {
+        liff.sendMessages([{ type: "text", text: inputRef.current.value }]);
+        alert("送信しました。");
+        inputRef.current.value = "ok";
+      });
     }
   }
 
