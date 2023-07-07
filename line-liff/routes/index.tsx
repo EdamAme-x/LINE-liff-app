@@ -4,7 +4,7 @@ import { useRef, useEffect } from "preact/hooks";
 
 export default function Home() {
 
-  if (sessionStorage.getItem("token")) {
+  if (sessionStorage) {
   return (
     <>
     <Head>
