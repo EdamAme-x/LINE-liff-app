@@ -12,12 +12,6 @@ export default function Tool() {
         liffId: liffId,
       })
       .then(() => {
-        getProfile();
-      })
-      .catch((err) => {
-        alert(err);
-      })
-      .then(() => {
         alert("起動しました。");
       })
       .catch((err) => {
