@@ -1,0 +1,15 @@
+{
+  "name": "line-liff",
+  "version": "1.0.0",
+  "description": "Your new Fresh project is ready to go. You can follow the Fresh \"Getting\r Started\" guide here: https://fresh.deno.dev/docs/getting-started",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@line/liff": "^2.22.2"
+  }
+}

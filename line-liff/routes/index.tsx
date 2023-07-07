@@ -1,5 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import liff from "npm:@line/liff";
+import liff from "../node_modules/@line/liff";
 
 import { useRef, useEffect } from "preact/hooks";
 
